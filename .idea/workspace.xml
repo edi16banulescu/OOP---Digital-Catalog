@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fa1ccd70-4d78-4eaf-a264-83332f98ffda" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OOP.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BestExamScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BestPartialScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BestTotalScore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Catalog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Element.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FullCourse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Grade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Group.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Observer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PartialCourse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ScoreVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Strategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Visitor.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/BestExamScore.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/BestPartialScore.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/BestTotalScore.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/Catalog.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/Course.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/FullCourse.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/Grade.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/Group.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/PartialCourse.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/ScoreVisitor.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/User.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/UserFactory.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2J2oN15tv3rYZIOiUpKACBNLLef" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Downloads[D]/Tema POO-CC (2022-2023).pdf"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fa1ccd70-4d78-4eaf-a264-83332f98ffda" name="Changes" comment="" />
+      <created>1671285499949</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1671285499949</updated>
+      <workItem from="1671285501703" duration="5769000" />
+      <workItem from="1671447011631" duration="30678000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
