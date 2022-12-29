@@ -1,21 +1,28 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) throws FileNotFoundException {
         File file = new File("D:\\IdeaProjects\\OOP\\src\\Math");
+        Scanner input = new Scanner(file);
+
         UserFactory factory = new UserFactory();
         Visitor scoreVisitor = new ScoreVisitor();
         Course myCourse;
+
         String course = file.getName();
-        Scanner input = new Scanner(file);
+
         String tutorFirstName = input.next();
         String tutorLastName = input.next();
+
         Teacher tutor = (Teacher)factory.getUser("Teacher", tutorFirstName, tutorLastName);
+
         int credits = input.nextInt();
+
         if(input.next().equals("Full")) {
             myCourse = new FullCourse.FullCourseBuilder()
                     .name(course)
@@ -34,6 +41,7 @@ public class Test {
             String ID = input.next();
             String assistantFirstName = input.next();
             String assistantLastName = input.next();
+
             Assistant assistant = (Assistant) factory.getUser("Assistant", assistantFirstName, assistantLastName);
 
             myCourse.addGroup(ID, assistant);
@@ -53,6 +61,8 @@ public class Test {
                 student.setMother(mother);
                 myCourse.addStudent(ID, student);
 
+                Catalog.getInstance().addObserver(mother);
+
                 Double partialScore = input.nextDouble();
                 Double examScore = input.nextDouble();
 
@@ -67,16 +77,13 @@ public class Test {
         for (Map.Entry<String, Group> entry : groups.entrySet()) {
             entry.getValue().getAssistant().accept(scoreVisitor);
         }
-        //tutor.accept(scoreVisitor);
+        tutor.accept(scoreVisitor);
 
 
-        HashMap<Student, Grade> myMap = Catalog.getInstance().courses.get(0).gettAllStudentGrades();
+        BestExamScore bestExamScore = new BestExamScore();
+        BestPartialScore bestPartialScore = new BestPartialScore();
+        BestTotalScore bestTotalScore = new BestTotalScore();
 
-        for (Map.Entry<Student,Grade> entry : myMap.entrySet()) {
-            System.out.println(entry.getKey());
-            System.out.println(entry.getValue().getExamScore());
-            System.out.println(entry.getValue().getCourse());
-            System.out.println(entry.getValue().getPartialScore());
-        }
+
     }
 }

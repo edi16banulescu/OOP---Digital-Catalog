@@ -34,8 +34,9 @@ public class Catalog implements Subject{
 
     @Override
     public void notifyObservers(Grade grade) {
-        for(Observer o : observers)
+        for(Observer o : observers) {
             o.update(new Notification(grade));
+        }
     }
 }
 

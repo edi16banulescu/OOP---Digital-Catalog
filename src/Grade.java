@@ -39,6 +39,10 @@ public class Grade implements Comparable, Cloneable {
         return partialScore + examScore;
     }
 
+    public String toString() {
+        return "Student: " + getStudent() + " has a new grade;";
+    }
+
     @Override
     public int compareTo(Object o) {
         Grade g = (Grade) o;

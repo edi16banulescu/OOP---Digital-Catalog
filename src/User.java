@@ -11,6 +11,7 @@ public abstract class User {
     }
 
     public String getLastName() { return lastName; }
+    public String getFirstName() { return firstName; }
 }
 
 class Parent extends User implements Observer{

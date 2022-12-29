@@ -21,7 +21,19 @@ public class ScoreVisitor implements Visitor {
 
                         for(Student s : entry.getValue()) {
                             if(myMap.containsKey(s)) {
-                                //TODO
+                                List<Tuple<Student, String, Double>> allStudents = partialScores.get(assistant);
+                                Double exam = null;
+                                for(Tuple t : allStudents) {
+                                    if(t.getStudent().equals(s)) {
+                                        exam = (Double) t.getGrade();
+                                    }
+                                }
+
+                                Catalog.getInstance().courses.get(i).gettAllStudentGrades()
+                                        .get(s).setPartialScore(exam);
+
+                                Catalog.getInstance().notifyObservers(Catalog.getInstance().courses.
+                                        get(i).getGrade(s));
                             } else {
                                 Grade g = new Grade();
 
@@ -62,7 +74,19 @@ public class ScoreVisitor implements Visitor {
 
                 for(Student s : myList) {
                     if(myMap.containsKey(s)) {
-                        //TODO
+                        List<Tuple<Student, String, Double>> allStudents = examScores.get(teacher);
+                        Double exam = null;
+                        for(Tuple t : allStudents) {
+                            if(t.getStudent().equals(s)) {
+                                exam = (Double) t.getGrade();
+                            }
+                        }
+
+                        Catalog.getInstance().courses.get(i).gettAllStudentGrades()
+                                .get(s).setExamScore(exam);
+
+                        Catalog.getInstance().notifyObservers(Catalog.getInstance().courses.
+                                get(i).getGrade(s));
                     } else {
                         Grade g = new Grade();
                         List<Tuple<Student, String, Double>> allStudents = examScores.get(teacher);
