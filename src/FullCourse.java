@@ -26,12 +26,6 @@ public class FullCourse extends Course{
         private Teacher tutor;
         private int credits;
 
-        public FullCourseBuilder(String name, Teacher tutor, int credits) {
-            this.name = name;
-            this.tutor = tutor;
-            this.credits = credits;
-        }
-
         @Override
         public FullCourseBuilder name(String name) {
             this.name = name;
@@ -45,7 +39,7 @@ public class FullCourse extends Course{
         }
 
         @Override
-        public FullCourseBuilder credit(int credit) {
+        public FullCourseBuilder credit(int credits) {
             this.credits = credits;
             return this;
         }
@@ -56,8 +50,16 @@ public class FullCourse extends Course{
     }
 
     private FullCourse(FullCourseBuilder builder) {
-        this.name = builder.name;
-        this.tutor = builder.tutor;
-        this.credits = builder.credits;
+        name = builder.name;
+        tutor = builder.tutor;
+        credits = builder.credits;
     }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public Teacher getTutor() { return tutor; }
+    public void setTutor(Teacher tutor) { this.tutor = tutor; }
+    public int getCredits() { return credits; }
+    public void setCredits(int credits) { this.credits = credits; }
+
 }

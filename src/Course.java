@@ -22,10 +22,8 @@ public abstract class Course {
 
     public void addAssistant(String ID, Assistant assistant) {
         if(groups.containsKey(ID)) {
-            if(groups.get(ID).getAssistant() != null) {
-                groups.get(ID).setAssistant(assistant);
-            } else {
-                groups.get(ID).setAssistant(assistant);
+            groups.get(ID).setAssistant(assistant);
+            if(!assistants.contains(assistant)) {
                 assistants.add(assistant);
             }
         }
@@ -36,16 +34,21 @@ public abstract class Course {
     }
 
     public void addGroup(Group group) {
+
         groups.put(group.getID(), group);
+        assistants.add(group.getAssistant());
+
     }
 
     public void addGroup(String ID, Assistant assistant) {
         Group aux = new Group(ID, assistant);
+        assistants.add(assistant);
         groups.put(aux.getID(), aux);
     }
 
     public void addGroup(String ID, Assistant assist, Comparator<Student> comp) {
         Group aux = new Group(ID, assist, comp);
+        assistants.add(assist);
         groups.put(aux.getID(), aux);
     }
 
@@ -66,8 +69,10 @@ public abstract class Course {
     public ArrayList<Student> getAllStudents() {
         ArrayList<Student> myList = new ArrayList<Student>();
 
-        for(Grade grade : grades) {
-            myList.add(grade.getStudent());
+        for(Group g : groups.values()) {
+            for(Student s : g) {
+                myList.add(s);
+            }
         }
 
         return myList;

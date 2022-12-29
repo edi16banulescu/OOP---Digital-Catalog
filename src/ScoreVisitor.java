@@ -17,21 +17,34 @@ public class ScoreVisitor implements Visitor {
 
                 for (Map.Entry<String, Group> entry : groups.entrySet()) {
                     if(entry.getValue().getAssistant().equals(assistant)) {
-                        List<Tuple<Student, String, Double>> tupleList = new ArrayList<>();
-                        Iterator it = entry.getValue().iterator();
-                        while(it.hasNext()) {
-                            Student stud = (Student) it.next();
-                            Double grade = Catalog.getInstance().courses.
-                                                            get(i).getGrade(stud).getPartialScore();
-                            Tuple tuple = new Tuple(stud, courseName, grade);
+                        HashMap<Student, Grade> myMap = Catalog.getInstance().courses.get(i).gettAllStudentGrades();
 
-                            tupleList.add(tuple);
+                        for(Student s : entry.getValue()) {
+                            if(myMap.containsKey(s)) {
+                                //TODO
+                            } else {
+                                Grade g = new Grade();
 
-                            Catalog.getInstance().notifyObservers(Catalog.getInstance().courses.
-                                    get(i).getGrade(stud));
+                                List<Tuple<Student, String, Double>> allStudents = partialScores.get(assistant);
+                                Double exam = null;
+                                for(Tuple t : allStudents) {
+                                    if(t.getStudent().equals(s)) {
+                                        exam = (Double) t.getGrade();
+                                    }
+                                }
+
+                                g.setStudent(s);
+                                g.setCourse(Catalog.getInstance().courses.get(i).getName());
+                                g.setPartialScore(exam);
+                                g.setExamScore(0.0);
+
+                                Catalog.getInstance().courses.get(i).addGrade(g);
+
+
+                                Catalog.getInstance().notifyObservers(Catalog.getInstance().courses.
+                                        get(i).getGrade(s));
+                            }
                         }
-                        partialScores.put(assistant, tupleList);
-                        break;
                     }
                 }
                 break;
@@ -43,24 +56,58 @@ public class ScoreVisitor implements Visitor {
     public void visit(Teacher teacher) {
         for(int i = 0; i < Catalog.getInstance().courses.size(); i ++) {
             if(Catalog.getInstance().courses.get(i).getTutor().equals(teacher)) {
-                List<Tuple<Student, String, Double>> tupleList = new ArrayList<>();
-                HashMap<Student, Grade> myMap =
-                        Catalog.getInstance().courses.get(i).gettAllStudentGrades();
-                String courseName = Catalog.getInstance().courses.get(i).getName();
 
-                for (Map.Entry<Student,Grade> entry : myMap.entrySet()) {
-                    Student stud = entry.getKey();
-                    Double grade = entry.getValue().getExamScore();
-                    Tuple tuple = new Tuple(stud, courseName, grade);
+                List<Student> myList = Catalog.getInstance().courses.get(i).getAllStudents();
+                HashMap<Student, Grade> myMap = Catalog.getInstance().courses.get(i).gettAllStudentGrades();
 
-                    tupleList.add(tuple);
+                for(Student s : myList) {
+                    if(myMap.containsKey(s)) {
+                        //TODO
+                    } else {
+                        Grade g = new Grade();
+                        List<Tuple<Student, String, Double>> allStudents = examScores.get(teacher);
+                        Double exam = null;
+                        for(Tuple t : allStudents) {
+                            if(t.getStudent().equals(s)) {
+                                exam = (Double) t.getGrade();
+                            }
+                        }
 
-                    Catalog.getInstance().notifyObservers(Catalog.getInstance().courses.
-                            get(i).getGrade(stud));
+                        g.setStudent(s);
+                        g.setCourse(Catalog.getInstance().courses.get(i).getName());
+                        g.setExamScore(exam);
+                        g.setPartialScore(0.0);
+
+                        Catalog.getInstance().courses.get(i).addGrade(g);
+
+
+                        Catalog.getInstance().notifyObservers(Catalog.getInstance().courses.
+                                get(i).getGrade(s));
+                    }
                 }
-                examScores.put(teacher, tupleList);
-                break;
             }
+        }
+    }
+
+    public void addPartialScore(Assistant assistant, Student student, String courseName, Double grade) {
+        Tuple tuple = new Tuple(student, courseName, grade);
+        if(partialScores.containsKey(assistant)) {
+            partialScores.get(assistant).add(tuple);
+        } else {
+            List<Tuple<Student, String, Double>> tupleList = new ArrayList<>();
+            tupleList.add(tuple);
+            partialScores.put(assistant, tupleList);
+        }
+    }
+
+    public void addExamScore(Teacher teacher, Student student, String courseName, Double grade) {
+        Tuple tuple = new Tuple(student, courseName, grade);
+        if(examScores.containsKey(teacher)) {
+            examScores.get(teacher).add(tuple);
+        } else {
+            List<Tuple<Student, String, Double>> tupleList = new ArrayList<>();
+            tupleList.add(tuple);
+            examScores.put(teacher, tupleList);
         }
     }
 

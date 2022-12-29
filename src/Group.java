@@ -4,7 +4,7 @@ import java.util.TreeSet;
 public class Group extends TreeSet<Student> {
     private Assistant assistant;
     private String ID;
-    private Comparator<Student> comp;
+    private Comparator<Student> comp = (Student s1, Student s2) -> ( s1.getLastName().compareTo(s2.getLastName()) );
 
     public Group(String ID, Assistant assistant, Comparator<Student> comp) {
         this.assistant = assistant;

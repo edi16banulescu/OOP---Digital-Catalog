@@ -25,12 +25,6 @@ public class PartialCourse extends Course{
         private Teacher tutor;
         private int credits;
 
-        public PartialCourseBuilder(String name, Teacher tutor, int credits) {
-            this.name = name;
-            this.tutor = tutor;
-            this.credits = credits;
-        }
-
         @Override
         public PartialCourseBuilder name(String name) {
             this.name = name;
@@ -59,4 +53,11 @@ public class PartialCourse extends Course{
         this.tutor = builder.tutor;
         this.credits = builder.credits;
     }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public Teacher getTutor() { return tutor; }
+    public void setTutor(Teacher tutor) { this.tutor = tutor; }
+    public int getCredits() { return credits; }
+    public void setCredits(int credits) { this.credits = credits; }
 }

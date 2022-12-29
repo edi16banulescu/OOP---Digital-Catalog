@@ -9,6 +9,8 @@ public abstract class User {
     public String toString() {
         return firstName + " " + lastName;
     }
+
+    public String getLastName() { return lastName; }
 }
 
 class Parent extends User implements Observer{
@@ -22,7 +24,7 @@ class Parent extends User implements Observer{
     }
 }
 
-class Student extends User {
+class Student extends User implements Comparable<Student>{
     private Parent mother, father;
 
     public Student(String firstName, String lastName) {
@@ -35,6 +37,11 @@ class Student extends User {
 
     public void setFather(Parent father) {
         this.father = father;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return this.getLastName().compareTo(o.getLastName());
     }
 }
 
