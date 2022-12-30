@@ -109,4 +109,6 @@ public abstract class Course {
             backup = copy;
         }
     }
+
+    public String toString() { return getName(); }
 }

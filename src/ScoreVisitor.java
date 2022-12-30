@@ -59,6 +59,7 @@ public class ScoreVisitor implements Visitor {
                         }
                     }
                 }
+                partialScores.get(assistant).clear();
                 break;
             }
         }
@@ -109,6 +110,8 @@ public class ScoreVisitor implements Visitor {
                                 get(i).getGrade(s));
                     }
                 }
+
+                examScores.get(teacher).clear();
             }
         }
     }
@@ -153,6 +156,10 @@ public class ScoreVisitor implements Visitor {
             this.student = student;
             this.name = name;
             this.grade = grade;
+        }
+
+        public String toString() {
+            return student + " " + name + " " + grade;
         }
     }
 }

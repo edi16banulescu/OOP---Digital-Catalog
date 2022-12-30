@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa1ccd70-4d78-4eaf-a264-83332f98ffda" name="Changes" comment="Trying to test">
-      <change afterPath="$PROJECT_DIR$/src/StudentPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TeacherPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Catalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catalog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Math" beforeDir="false" afterPath="$PROJECT_DIR$/src/Math" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ScoreVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScoreVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +38,7 @@
     <setting file="file://$PROJECT_DIR$/src/PartialCourse.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/ScoreVisitor.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/StudentPage.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/TeacherPage.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Test.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/User.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/UserFactory.java" root0="SKIP_INSPECTION" />
@@ -91,7 +90,7 @@
       <workItem from="1671447011631" duration="30803000" />
       <workItem from="1671570215571" duration="642000" />
       <workItem from="1671656194476" duration="1189000" />
-      <workItem from="1672139326834" duration="27319000" />
+      <workItem from="1672139326834" duration="38842000" />
     </task>
     <task id="LOCAL-00001" summary="All clases">
       <created>1671541909301</created>
@@ -107,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672337015011</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Trying to test">
+      <created>1672342278613</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672342278613</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

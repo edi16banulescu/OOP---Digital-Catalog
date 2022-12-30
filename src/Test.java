@@ -71,19 +71,18 @@ public class Test {
             }
         }
 
-        System.out.println(myCourse.getAllStudents());
         Catalog.getInstance().addCourse(myCourse);
-        HashMap<String, Group> groups = Catalog.getInstance().courses.get(0).getGroups();
-        for (Map.Entry<String, Group> entry : groups.entrySet()) {
-            entry.getValue().getAssistant().accept(scoreVisitor);
-        }
-        tutor.accept(scoreVisitor);
+//        HashMap<String, Group> groups = Catalog.getInstance().courses.get(0).getGroups();
+//        for (Map.Entry<String, Group> entry : groups.entrySet()) {
+//            entry.getValue().getAssistant().accept(scoreVisitor);
+//        }
+//        tutor.accept(scoreVisitor);
 
 
-        BestExamScore bestExamScore = new BestExamScore();
-        BestPartialScore bestPartialScore = new BestPartialScore();
-        BestTotalScore bestTotalScore = new BestTotalScore();
+//        Student test = myCourse.getAllStudents().get(2);
+//        StudentPage studentPage = new StudentPage(test);
 
-
+        Teacher teacher = Catalog.getInstance().courses.get(0).getTutor();
+        TeacherPage teacherPage = new TeacherPage(teacher, scoreVisitor);
     }
 }
