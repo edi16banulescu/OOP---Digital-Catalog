@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa1ccd70-4d78-4eaf-a264-83332f98ffda" name="Changes" comment="Trying to test">
-      <change afterPath="$PROJECT_DIR$/src/TeacherPage.java" afterDir="false" />
+    <list default="true" id="fa1ccd70-4d78-4eaf-a264-83332f98ffda" name="Changes" comment="Graphic Interface">
+      <change afterPath="$PROJECT_DIR$/src/AssistantPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DefaultPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OOP" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ParentPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScoreVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScoreVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Catalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Catalog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StudentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TeacherPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeacherPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,15 +31,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/AssistantPage.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/BestExamScore.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/BestPartialScore.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/BestTotalScore.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Catalog.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Course.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/DefaultPage.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/FullCourse.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Grade.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Group.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Math" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/ParentPage.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/PartialCourse.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/ScoreVisitor.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/StudentPage.java" root0="SKIP_INSPECTION" />
@@ -64,6 +72,13 @@
   }
 }]]></component>
   <component name="RunManager">
+    <configuration name="Problema1V1" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Problema1V1" />
+      <module name="OOP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test03" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Lab11.laborator11.Test03" />
       <module name="OOP" />
@@ -90,7 +105,7 @@
       <workItem from="1671447011631" duration="30803000" />
       <workItem from="1671570215571" duration="642000" />
       <workItem from="1671656194476" duration="1189000" />
-      <workItem from="1672139326834" duration="38842000" />
+      <workItem from="1672139326834" duration="58510000" />
     </task>
     <task id="LOCAL-00001" summary="All clases">
       <created>1671541909301</created>
@@ -113,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672342278613</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Graphic Interface">
+      <created>1672430733599</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672430733599</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +155,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="All clases" />
     <MESSAGE value="Trying to test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to test" />
+    <MESSAGE value="Graphic Interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Graphic Interface" />
   </component>
 </project>

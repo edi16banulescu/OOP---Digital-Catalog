@@ -6,24 +6,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class TeacherPage extends JFrame implements ListSelectionListener, ActionListener {
+public class AssistantPage extends JFrame implements ListSelectionListener, ActionListener {
     JButton button = null;
     JList myList = null;
     DefaultListModel<Course> courses = null;
-    Teacher teacher = null;
+    Assistant assistant = null;
     Visitor visitor = null;
+    JFrame second = null;
+    JList list = null;
 
-    public TeacherPage(Teacher teacher, Visitor visitor) {
-        super("Teacher Page");
+    public AssistantPage(Assistant assistant, Visitor visitor) {
+        super("Assistant Page");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        this.teacher = teacher;
+        this.assistant = assistant;
         this.visitor = visitor;
 
         courses = new DefaultListModel<>();
 
         for(int i = 0; i < Catalog.getInstance().courses.size(); i ++) {
-            if(Catalog.getInstance().courses.get(i).getTutor().equals(teacher)) {
+            if(Catalog.getInstance().courses.get(i).isAssistant(assistant)) {
                 courses.addElement(Catalog.getInstance().courses.get(i));
             }
         }
@@ -42,19 +44,19 @@ public class TeacherPage extends JFrame implements ListSelectionListener, Action
         if(myList.isSelectionEmpty())
             return;
 
-        JFrame second = new JFrame();
+        second = new JFrame();
         button = new JButton("Validate");
         button.addActionListener(this);
         second.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        List examScores = ((ScoreVisitor) visitor).examScores.get(teacher);
+        List partialScorees = ((ScoreVisitor) visitor).partialScores.get(assistant);
         DefaultListModel listModel = new DefaultListModel();
 
-        for(int i = 0; i < examScores.size(); i ++ ) {
-            listModel.addElement(examScores.get(i));
+        for(int i = 0; i < partialScorees.size(); i ++ ) {
+            listModel.addElement(partialScorees.get(i));
         }
 
-        JList list = new JList<>(listModel);
+        list = new JList<>(listModel);
 
         JPanel rb = new JPanel();
         rb.setLayout(new BorderLayout());
@@ -71,7 +73,7 @@ public class TeacherPage extends JFrame implements ListSelectionListener, Action
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() instanceof JButton) {
-            teacher.accept(visitor);
+            assistant.accept(visitor);
             repaint();
         }
     }

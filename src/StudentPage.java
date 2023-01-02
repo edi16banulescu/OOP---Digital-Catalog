@@ -16,7 +16,8 @@ public class StudentPage extends JFrame implements ListSelectionListener {
     Student student = null;
     public StudentPage(Student student) {
         super("Student Page");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         this.student = student;
         courses = new DefaultListModel<>();
         for(int i = 0; i < Catalog.getInstance().courses.size(); i ++) {
@@ -41,7 +42,7 @@ public class StudentPage extends JFrame implements ListSelectionListener {
             return;
 
         JFrame second = new JFrame();
-        second.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        second.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         assistants = new DefaultListModel<>();
         Assistant aux = new Assistant("Assistants", ":");

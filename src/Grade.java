@@ -40,7 +40,8 @@ public class Grade implements Comparable, Cloneable {
     }
 
     public String toString() {
-        return "Student: " + getStudent() + " has a new grade;";
+        return "Student: " + getStudent() + " has a new grade: " + getCourse() + "\n grades: "
+                        + getPartialScore() + " " + getExamScore();
     }
 
     @Override

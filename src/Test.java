@@ -7,11 +7,23 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("D:\\IdeaProjects\\OOP\\src\\Math");
+        Visitor scoreVisitor = new ScoreVisitor();
+        Test test = new Test();
+        test.parser("src/OOP", scoreVisitor);
+        test.parser("src/Math", scoreVisitor);
+        System.out.println(Catalog.getInstance().courses.size());
+
+        //DefaultPage initial = new DefaultPage(scoreVisitor);
+    }
+
+
+
+    public void parser(String fileName, Visitor scoreVisitor) throws FileNotFoundException {
+        File file = new File(fileName);
         Scanner input = new Scanner(file);
 
         UserFactory factory = new UserFactory();
-        Visitor scoreVisitor = new ScoreVisitor();
+
         Course myCourse;
 
         String course = file.getName();
@@ -72,17 +84,5 @@ public class Test {
         }
 
         Catalog.getInstance().addCourse(myCourse);
-//        HashMap<String, Group> groups = Catalog.getInstance().courses.get(0).getGroups();
-//        for (Map.Entry<String, Group> entry : groups.entrySet()) {
-//            entry.getValue().getAssistant().accept(scoreVisitor);
-//        }
-//        tutor.accept(scoreVisitor);
-
-
-//        Student test = myCourse.getAllStudents().get(2);
-//        StudentPage studentPage = new StudentPage(test);
-
-        Teacher teacher = Catalog.getInstance().courses.get(0).getTutor();
-        TeacherPage teacherPage = new TeacherPage(teacher, scoreVisitor);
     }
 }
