@@ -24,6 +24,7 @@ public class AssistantPage extends JFrame implements ListSelectionListener, Acti
 
         courses = new DefaultListModel<>();
 
+        /* Create a list which contains all courses taught by our assistant */
         for(int i = 0; i < Catalog.getInstance().courses.size(); i ++) {
             if(Catalog.getInstance().courses.get(i).isAssistant(assistant)) {
                 courses.addElement(Catalog.getInstance().courses.get(i));
@@ -72,6 +73,8 @@ public class AssistantPage extends JFrame implements ListSelectionListener, Acti
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        /* Pressing "Validate" will validate the notes of the assistant in the catalog */
         if(e.getSource() instanceof JButton) {
             assistant.accept(visitor);
             repaint();

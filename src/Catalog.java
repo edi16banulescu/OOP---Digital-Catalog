@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Catalog implements Subject{
 
-    private List<Observer> observers = new ArrayList<>();
+    private List<Parent> observers = new ArrayList<>();
     private static Catalog instance = null;
     public List<Course> courses = new ArrayList<Course>();
     private Catalog() {}
@@ -24,18 +24,19 @@ public class Catalog implements Subject{
 
     @Override
     public void addObserver(Observer observer) {
-        observers.add(observer);
+        observers.add((Parent)observer);
     }
 
     @Override
     public void removeObserver(Observer observer) {
-        observers.remove(observer);
+        observers.remove((Parent)observer);
     }
 
     @Override
     public void notifyObservers(Grade grade) {
-        for(Observer o : observers) {
-            if(grade.getStudent().getMother().equals(o)) {
+        for(Parent o : observers) {
+            if(grade.getStudent().getMother().getFirstName().equals(o.getFirstName()) &&
+                    grade.getStudent().getMother().getLastName().equals(o.getLastName())) {
                 o.update(new Notification(grade));
             }
         }

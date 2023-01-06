@@ -8,7 +8,7 @@ public abstract class Course {
     private TreeSet<Grade> grades = new TreeSet<Grade>();
     private HashMap<String, Group> groups = new HashMap<String, Group>();
     private int credits;
-    private Snapshot snapshot;
+    private Snapshot snapshot = new Snapshot();
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -16,7 +16,16 @@ public abstract class Course {
     public void setTutor(Teacher tutor) { this.tutor = tutor; }
     public int getCredits() { return credits; }
     public void setCredits(int credits) { this.credits = credits; }
-    public boolean isAssistant(Assistant assistant) { return assistants.contains(assistant); }
+    public boolean isAssistant(Assistant assistant) {
+        for(Assistant a : assistants) {
+            if(a.getFirstName().equals(assistant.getFirstName()) &&
+                    a.getLastName().equals(assistant.getLastName())) {
+                return true;
+            }
+        }
+
+        return false;
+    }
     public HashMap<String, Group> getGroups() { return groups; }
 
 
@@ -54,7 +63,8 @@ public abstract class Course {
 
     public Grade getGrade(Student student) {
         for(Grade grade : grades) {
-            if(grade.getStudent().equals(student)) {
+            if(grade.getStudent().getFirstName().equals(student.getFirstName()) &&
+                    grade.getStudent().getLastName().equals(student.getLastName())) {
                 return grade;
             }
         }
@@ -100,14 +110,37 @@ public abstract class Course {
         private HashMap<Student, Grade> backup = null;
         private HashMap<Student, Grade> copy = null;
 
-        public void makeBackup() {
-            copy = backup;
-            backup = gettAllStudentGrades();
+        public Snapshot() {
+            backup = new HashMap<Student, Grade>();
+            copy = new HashMap<Student, Grade>();
         }
 
-        public void undo() {
-            backup = copy;
+        public HashMap<Student, Grade> getBackup() {
+            return backup;
         }
+
+        public String toString() {
+            String s = "My backup for course " + getName() + ":\n";
+
+            for (Map.Entry<Student,Grade> entry : backup.entrySet()) {
+                s += entry.getValue() + "\n";
+            }
+
+            return s;
+        }
+    }
+
+    public void makeBackup() {
+        snapshot.copy = snapshot.backup;
+        snapshot.backup = gettAllStudentGrades();
+    }
+
+    public void undo() {
+        snapshot.backup = snapshot.copy;
+    }
+
+    public Snapshot getSnapshot() {
+        return snapshot;
     }
 
     public String toString() { return getName(); }

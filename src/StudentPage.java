@@ -20,10 +20,14 @@ public class StudentPage extends JFrame implements ListSelectionListener {
 
         this.student = student;
         courses = new DefaultListModel<>();
+        /* Create a list which contains all the courses where our stud is assigned */
         for(int i = 0; i < Catalog.getInstance().courses.size(); i ++) {
             List<Student> listofStudents = Catalog.getInstance().courses.get(i).getAllStudents();
-            if(listofStudents.contains(student)) {
-                courses.addElement(Catalog.getInstance().courses.get(i));
+            for(Student s : listofStudents) {
+                if(s.getFirstName().equals(student.getFirstName()) &&
+                        s.getLastName().equals(student.getLastName())) {
+                    courses.addElement(Catalog.getInstance().courses.get(i));
+                }
             }
         }
 
@@ -56,18 +60,36 @@ public class StudentPage extends JFrame implements ListSelectionListener {
         groups = course.getGroups();
         for(Group g : groups.values()) {
             assistants.addElement(g.getAssistant());
-            if(g.contains(student)) {
-                his = g.getAssistant();
+
+            for(Student s : g) {
+                if(s.getFirstName().equals(student.getFirstName()) &&
+                        s.getLastName().equals(student.getLastName())) {
+                    his = g.getAssistant();
+                    break;
+                }
             }
         }
 
         grade = course.getGrade(student);
         JList jlist = new JList(assistants);
-        JTextField text1 = new JTextField("Partial score: " + grade.getPartialScore().toString());
-        JTextField text2 = new JTextField("Exam score: " + grade.getExamScore().toString());
-        JTextField text3 = new JTextField("Teacher: " + course.getTutor().getFirstName() + " " +
-                                course.getTutor().getLastName());
-        JTextField text4 = new JTextField("Assistant: " + his);
+        JTextField text1 = null;
+        JTextField text2 = null;
+        JTextField text3 = null;
+        JTextField text4 = null;
+
+        if(grade == null) {
+            text1 = new JTextField("Partial score: not assigned");
+            text2 = new JTextField("Exam score: not assigned");
+            text3 = new JTextField("Teacher: " + course.getTutor().getFirstName() + " " +
+                    course.getTutor().getLastName());
+            text4 = new JTextField("Assistant: " + his);
+        } else {
+            text1 = new JTextField("Partial score: " + grade.getPartialScore().toString());
+            text2 = new JTextField("Exam score: " + grade.getExamScore().toString());
+            text3 = new JTextField("Teacher: " + course.getTutor().getFirstName() + " " +
+                    course.getTutor().getLastName());
+            text4 = new JTextField("Assistant: " + his);
+        }
 
         text1.setEditable(false);
         text2.setEditable(false);

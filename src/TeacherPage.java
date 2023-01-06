@@ -22,8 +22,11 @@ public class TeacherPage extends JFrame implements ListSelectionListener, Action
 
         courses = new DefaultListModel<>();
 
+        /* Create a list which contains all courses taught by our teacher */
         for(int i = 0; i < Catalog.getInstance().courses.size(); i ++) {
-            if(Catalog.getInstance().courses.get(i).getTutor().equals(teacher)) {
+            if(Catalog.getInstance().courses.get(i).getTutor().getFirstName()
+                    .equals(teacher.getFirstName()) && Catalog.getInstance().courses.get(i).
+                    getTutor().getLastName().equals(teacher.getLastName()) ) {
                 courses.addElement(Catalog.getInstance().courses.get(i));
             }
         }

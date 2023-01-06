@@ -11,13 +11,39 @@ public class Test {
         Test test = new Test();
         test.parser("src/OOP", scoreVisitor);
         test.parser("src/Math", scoreVisitor);
-        System.out.println(Catalog.getInstance().courses.size());
 
-        //DefaultPage initial = new DefaultPage(scoreVisitor);
+        /* For this course all grades are assigned by default */
+        test.parser("src/Operating Systems", scoreVisitor);
+        Catalog.getInstance().courses.get(2).getTutor().accept(scoreVisitor);
+        for(Group g : Catalog.getInstance().courses.get(2).getGroups().values()) {
+            g.getAssistant().accept(scoreVisitor);
+        }
+
+        DefaultPage initial = new DefaultPage(scoreVisitor);
+
+        /* Testing other functionalities that I could not include in the graphic interface */
+        BestTotalScore bestTotalScore = new BestTotalScore();
+        BestPartialScore bestPartialScore = new BestPartialScore();
+        BestExamScore bestExamScore = new BestExamScore();
+
+        System.out.println("Best total score for OS : " + bestTotalScore.
+                                        getBestStudent(Catalog.getInstance().courses.get(2)));
+        System.out.println("Best partial score for OS : " + bestPartialScore.
+                                        getBestStudent(Catalog.getInstance().courses.get(2)));
+        System.out.println("Best exam score for OS : " + bestExamScore.
+                                        getBestStudent(Catalog.getInstance().courses.get(2)));
+
+        FullCourse os = (FullCourse) Catalog.getInstance().courses.get(2);
+        System.out.println("All graduated students from OS : " + os.getGraduatedStudents());
+
+        System.out.println("\n");
+        os.makeBackup();
+        System.out.println(os.getSnapshot());
+
     }
 
 
-
+    /* A function used to parse MY type of files which contains the courses */
     public void parser(String fileName, Visitor scoreVisitor) throws FileNotFoundException {
         File file = new File(fileName);
         Scanner input = new Scanner(file);
@@ -54,14 +80,15 @@ public class Test {
             String assistantFirstName = input.next();
             String assistantLastName = input.next();
 
-            Assistant assistant = (Assistant) factory.getUser("Assistant", assistantFirstName, assistantLastName);
+            Assistant assistant = (Assistant) factory.getUser("Assistant",
+                                                            assistantFirstName, assistantLastName);
 
             myCourse.addGroup(ID, assistant);
 
             for(int i = 0; i < 3; i ++) {
                 String firstName = input.next();
                 String lastName = input.next();
-                Student student = new Student(firstName, lastName);
+                Student student = (Student) factory.getUser("Student", firstName, lastName);
 
                 String fatherFirstName = input.next();
                 Parent father = (Parent) factory.getUser("Parent", fatherFirstName, lastName);

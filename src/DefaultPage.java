@@ -47,12 +47,15 @@ public class DefaultPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        /* Every "Go" button will validate the firstName and lastName to proceed to the next page */
+
         if(e.getActionCommand().equals("Go Student")) {
             String firstName = t1.getText();
             String lastName = t2.getText();
             boolean ok = false;
             for(int i = 0; i < Catalog.getInstance().courses.size(); i ++) {
-                ArrayList<Student> listofStudents = Catalog.getInstance().courses.get(i).getAllStudents();
+                ArrayList<Student> listofStudents = Catalog.getInstance().courses.get(i)
+                                                                                .getAllStudents();
                 for(Student s : listofStudents) {
                     if(s.getFirstName().equals(firstName) && s.getLastName().equals(lastName)) {
                         StudentPage studentPage = new StudentPage(s);
@@ -151,6 +154,8 @@ public class DefaultPage extends JFrame implements ActionListener {
             frame1.add(rb, BorderLayout.CENTER);
 
             frame1.setSize(300, 300);
+
+            /* We create a search page for every type of User */
 
             if(e.getActionCommand().equals("Student")) {
                 JButton button = new JButton("Go Student");

@@ -17,13 +17,14 @@ public class ParentPage extends JFrame implements ActionListener {
         button = new JButton("Mark all as read");
 
         jlist = new JList<>(parent.notifications);
+        JScrollPane scrollPane = new JScrollPane(jlist);
         button.addActionListener(this);
 
         setLayout(new BorderLayout());
 
         jlist.setFixedCellHeight(100);
         jlist.setFixedCellHeight(100);
-        add(jlist, BorderLayout.CENTER);
+        add(scrollPane, BorderLayout.CENTER);
         add(button, BorderLayout.PAGE_END);
         setSize(1000,600);
         setVisible(true);
@@ -31,6 +32,7 @@ public class ParentPage extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        /* Pressing the button clear all parent's notification */
         if(e.getSource() instanceof JButton) {
             parent.notifications.clear();
             repaint();

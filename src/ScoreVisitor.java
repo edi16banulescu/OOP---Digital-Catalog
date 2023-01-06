@@ -9,6 +9,7 @@ public class ScoreVisitor implements Visitor {
         partialScores = new HashMap<>();
     }
     @Override
+    /* An assistant add all grades from partialScores for his students to catalog */
     public void visit(Assistant assistant) {
         for(int i = 0; i < Catalog.getInstance().courses.size(); i ++) {
             if(Catalog.getInstance().courses.get(i).isAssistant(assistant)) {
@@ -17,11 +18,13 @@ public class ScoreVisitor implements Visitor {
 
                 for (Map.Entry<String, Group> entry : groups.entrySet()) {
                     if(entry.getValue().getAssistant().equals(assistant)) {
-                        HashMap<Student, Grade> myMap = Catalog.getInstance().courses.get(i).gettAllStudentGrades();
+                        HashMap<Student, Grade> myMap = Catalog.getInstance().courses.get(i)
+                                                                        .gettAllStudentGrades();
 
                         for(Student s : entry.getValue()) {
                             if(myMap.containsKey(s)) {
-                                List<Tuple<Student, String, Double>> allStudents = partialScores.get(assistant);
+                                List<Tuple<Student, String, Double>> allStudents =
+                                                                    partialScores.get(assistant);
                                 Double exam = null;
                                 for(Tuple t : allStudents) {
                                     if(t.getStudent().equals(s)) {
@@ -37,7 +40,8 @@ public class ScoreVisitor implements Visitor {
                             } else {
                                 Grade g = new Grade();
 
-                                List<Tuple<Student, String, Double>> allStudents = partialScores.get(assistant);
+                                List<Tuple<Student, String, Double>> allStudents =
+                                                                    partialScores.get(assistant);
                                 Double exam = null;
                                 for(Tuple t : allStudents) {
                                     if(t.getStudent().equals(s)) {
@@ -66,12 +70,14 @@ public class ScoreVisitor implements Visitor {
     }
 
     @Override
+    /* A teacher add all grades from examScores for his students to catalog */
     public void visit(Teacher teacher) {
         for(int i = 0; i < Catalog.getInstance().courses.size(); i ++) {
             if(Catalog.getInstance().courses.get(i).getTutor().equals(teacher)) {
 
                 List<Student> myList = Catalog.getInstance().courses.get(i).getAllStudents();
-                HashMap<Student, Grade> myMap = Catalog.getInstance().courses.get(i).gettAllStudentGrades();
+                HashMap<Student, Grade> myMap = Catalog.getInstance().courses.get(i).
+                                                                        gettAllStudentGrades();
 
                 for(Student s : myList) {
                     if(myMap.containsKey(s)) {
@@ -116,7 +122,8 @@ public class ScoreVisitor implements Visitor {
         }
     }
 
-    public void addPartialScore(Assistant assistant, Student student, String courseName, Double grade) {
+    public void addPartialScore(Assistant assistant, Student student, String courseName,
+                                                                                    Double grade) {
         Tuple tuple = new Tuple(student, courseName, grade);
         if(partialScores.containsKey(assistant)) {
             partialScores.get(assistant).add(tuple);
